@@ -18,7 +18,11 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1hokw0sxBoiF5m9J9g1aJGEPT8v" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,11 +49,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600685068066</updated>
-      <workItem from="1600685069907" duration="3727000" />
+      <workItem from="1600685069907" duration="4302000" />
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="833" y="436" key="Github.ShareDialog" timestamp="1600689438689">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="833" y="436" key="Github.ShareDialog/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600689438689" />
+    <state x="723" y="223" key="Github.UntrackedFilesDialog" timestamp="1600689465363">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="723" y="223" key="Github.UntrackedFilesDialog/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600689465363" />
     <state x="2055" y="168" width="1406" height="988" maximized="true" key="dock-window-1" timestamp="1600688444189">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
