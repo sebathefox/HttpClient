@@ -30,6 +30,7 @@
 #include <vector>
 
 // Custom classes
+#include "KeyboardNumeric.h"
 #include "Button.h"
 #include "HttpClient.h"
 
@@ -66,30 +67,30 @@ DHT tempHumidSensor(D4, DHT22);
 int main()
 {   
 
-    std::vector<Button> buttons;
-    
-    int size = 48;
-    int row = 0;
-    int col = 0;
-    
-    for(int i = 0; i < 9; i++) {
-        if(i % 3 == 0 && i != 0) {
-            row++;
-            col = 0;
-        }
-            
-        buttons.push_back(Button(0 + (col * size), 0 + (row * size), size, size, &ts, &lcd));
-        buttons[i].setLabel(static_cast<ostringstream*>( &(ostringstream() << (i + 1)) )->str());
-        
-        col++;
-    }
-    buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, &ts, &lcd));
-    buttons[9].setLabel("0");
-    
-    
-    for(int i = 0; i < 10; i++) {
-        buttons[i].draw();
-    }
+//    std::vector<Button> buttons;
+//
+//    int size = 48;
+//    int row = 0;
+//    int col = 0;
+//
+//    for(int i = 0; i < 9; i++) {
+//        if(i % 3 == 0 && i != 0) {
+//            row++;
+//            col = 0;
+//        }
+//
+//        buttons.push_back(Button(0 + (col * size), 0 + (row * size), size, size, &ts, &lcd));
+//        buttons[i].setLabel(static_cast<ostringstream*>( &(ostringstream() << (i + 1)) )->str());
+//
+//        col++;
+//    }
+//    buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, &ts, &lcd));
+//    buttons[9].setLabel("0");
+//
+//
+//    for(int i = 0; i < 10; i++) {
+//        buttons[i].draw();
+//    }
 
     // Base variables.
     
@@ -108,36 +109,37 @@ int main()
 
     std::string oldValue = "";
 
+    KeyboardNumeric numericKeyboard(0, 0, &lcd, &ts);
+
     while(1) {
         /*ts.GetState(&TS_State);
         if(TS_State.touchDetected) {*/
-          
-            tempHumidSensor.readData();
-            
-            float celcius = tempHumidSensor.ReadTemperature(CELCIUS);
-            
-            if(oldValue == static_cast<ostringstream*>( &(ostringstream() << celcius) )->str()) {
-                wait(0.2);
-                continue;
-            }
-            
-            lcd.DisplayStringAt(0, LINE(3), (uint8_t*) static_cast<ostringstream*>( &(ostringstream() << celcius) )->str().c_str(), CENTER_MODE);
-            
-            http.addBodyParameter("value", static_cast<ostringstream*>( &(ostringstream() << celcius) )->str());
-            http.addBodyParameter("&category", "1");
-            http.addBodyParameter("&token", DEVICE_TOKEN);
-            
-            http.send("/api/v1/data");
-            
-            lcd.DisplayStringAt(0, LINE(1), (uint8_t *)"SUCCESS!!!", CENTER_MODE);
-            
-            oldValue = static_cast<ostringstream*>( &(ostringstream() << celcius) )->str();
-            
-            
-            
-        //}
-        
-        wait(0.2);
+
+        numericKeyboard.
+
+//        tempHumidSensor.readData();
+//
+//        float celcius = tempHumidSensor.ReadTemperature(CELCIUS);
+//
+//        if(oldValue == static_cast<ostringstream*>( &(ostringstream() << celcius) )->str()) {
+//            wait(0.2);
+//            continue;
+//        }
+//
+//        lcd.DisplayStringAt(0, LINE(3), (uint8_t*) static_cast<ostringstream*>( &(ostringstream() << celcius) )->str().c_str(), CENTER_MODE);
+//
+//        http.addBodyParameter("value", static_cast<ostringstream*>( &(ostringstream() << celcius) )->str());
+//        http.addBodyParameter("&category", "1");
+//        http.addBodyParameter("&token", DEVICE_TOKEN);
+//
+//        http.send("/api/v1/data");
+//
+//        lcd.DisplayStringAt(0, LINE(1), (uint8_t *)"SUCCESS!!!", CENTER_MODE);
+//
+//        oldValue = static_cast<ostringstream*>( &(ostringstream() << celcius) )->str();
+//
+//
+//        wait(0.2);
     }
 
 }

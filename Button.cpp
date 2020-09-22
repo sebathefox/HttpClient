@@ -42,3 +42,28 @@ bool Button::intersects(int x, int y) {
 void Button::onTouch(int x, int y) {
 
 }
+
+bool Button::pressed() const {
+    return m_pressed;
+}
+
+void Button::attach(IObserver *observer) override {
+    m_observers.push_back(observer);
+}
+
+void Button::detach(IObserver *observer) override {
+    m_observers.remove(observer);
+}
+
+void Button::notify() override {
+    std::list<IObserver*>::iterator iterator = m_observers.begin();
+
+    while(iterator != m_observers.end()) {
+        (*iterator)->update(NumericKeyboardState(&this));
+        ++iterator;
+    }
+}
+
+std::string Button::getLabel() const {
+    return m_label;
+}
