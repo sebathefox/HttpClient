@@ -10,21 +10,12 @@
 
 #include "Button.h"
 
-#include "IObserver.h"
-
-#include <vector>
-
 // Forward declarations.
 class LCD_DISCO_F746NG;
 class TS_DISCO_F746NG;
 
-struct NumericKeyboardState : public IObserver {
-public:
-    NumericKeyboardState(Button& btn) : button(btn) {
+struct NumericKeyboardState {
 
-    }
-
-    Button& button;
 };
 
 /**
@@ -61,18 +52,7 @@ public:
      * @author Sebastian Davaris
      * @date 21-09-2020
      */
-    int poll(NumericKeyboardState& outState) const;
-
-    NumericKeyboardState getPressedKey() const;
-
-    /**
-     *
-     * @param i
-     * @return
-     */
-    Button& operator [] (int i);
-
-    void update(NumericKeyboardState state);
+    //int poll(NumericKeyboardState& outState) const;
 private:
 
     int m_x;

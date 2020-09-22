@@ -78,20 +78,6 @@ public:
      * @date 21-09-2020
      */
     bool intersects(int x, int y);
-
-    // The following methods are inherited from ITouchable
-
-    void onTouch(int x, int y);
-
-    bool pressed() const;
-
-    void attach(IObserver* observer);
-
-    void detach(IObserver* observer);
-
-    void notify();
-
-    std::string getLabel() const;
 private:
     int m_x;
     int m_y;
