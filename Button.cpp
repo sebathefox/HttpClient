@@ -47,15 +47,15 @@ bool Button::pressed() const {
     return m_pressed;
 }
 
-void Button::attach(IObserver *observer) override {
+void Button::attach(IObserver *observer) {
     m_observers.push_back(observer);
 }
 
-void Button::detach(IObserver *observer) override {
+void Button::detach(IObserver *observer) {
     m_observers.remove(observer);
 }
 
-void Button::notify() override {
+void Button::notify() {
     std::list<IObserver*>::iterator iterator = m_observers.begin();
 
     while(iterator != m_observers.end()) {
