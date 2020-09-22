@@ -78,6 +78,8 @@ public:
      * @date 21-09-2020
      */
     bool intersects(int x, int y);
+
+    void onTouch(int x, int y);
 private:
     int m_x;
     int m_y;

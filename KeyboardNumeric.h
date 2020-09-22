@@ -10,6 +10,8 @@
 
 #include "Button.h"
 
+#include <vector>
+
 // Forward declarations.
 class LCD_DISCO_F746NG;
 class TS_DISCO_F746NG;

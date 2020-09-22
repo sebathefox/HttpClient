@@ -23,7 +23,7 @@ public:
      * @author Sebastian Davaris
      * @date 21-09-2020
      */
-    void onTouch(int x, int y) = 0;
+    void onTouch(int x, int y);
 };
 
 
