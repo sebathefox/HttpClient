@@ -81,6 +81,7 @@ void onOnePressed(Button* sender) {
 
     if(sender->getLabel() == "*") {
         input = "";
+        return;
     }
     else if(sender->getLabel() == "#") {
 
@@ -98,7 +99,7 @@ void onOnePressed(Button* sender) {
     input += sender->getLabel();
 
     if (input == "#1337") {
-        rainbow != rainbow;
+        rainbow = true;
     }
 }
 
@@ -150,17 +151,19 @@ int main()
             lcd.Clear(LCD_COLOR_BLACK);
         }
         else {
-            for(int y = 0;y < 2;y++) {
-                temp = temp * (y + y + 1);
-                temp = (temp ^ (0xffffff)) >> 2;
-            }
+            int col = rand() % 2147483647;
 
-            lcd.Clear(temp);
+
+
+            lcd.Clear(col);
+
+//            lcd.DisplayStringAt(320, LINE(7), (uint8_t*)"NOPE", CENTER_MODE);
+
         }
 
         numericKeyboard.draw();
 
-        lcd.DisplayStringAt(320, LINE(5), (uint8_t*)input.c_str(), CENTER_MODE);
+        lcd.DisplayStringAt(0, LINE(5), (uint8_t*)input.c_str(), RIGHT_MODE);
 
         wait(0.18);
     }
