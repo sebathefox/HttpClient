@@ -60,6 +60,12 @@ void drawImage(char * name, uint16_t x, uint16_t y);
 
 DHT tempHumidSensor(D4, DHT22);
 
+
+void onOnePressed(Button* sender) {
+    printf(sender->getLabel().c_str());
+}
+
+
 /**
  * The main entrypoint for the application.
  * 
@@ -111,11 +117,15 @@ int main()
 
     KeyboardNumeric numericKeyboard(0, 0, &lcd, &ts);
 
+
+
     while(1) {
         /*ts.GetState(&TS_State);
         if(TS_State.touchDetected) {*/
 
-        numericKeyboard.
+        numericKeyboard.poll();
+
+        numericKeyboard.draw();
 
 //        tempHumidSensor.readData();
 //

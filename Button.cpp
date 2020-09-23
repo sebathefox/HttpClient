@@ -1,7 +1,5 @@
 #include "Button.h"
 
-
-
 // Display includes
 #include "TS_DISCO_F746NG.h"
 #include "LCD_DISCO_F746NG.h"
@@ -47,19 +45,19 @@ bool Button::pressed() const {
     return m_pressed;
 }
 
-void Button::attach(IObserver *observer) {
+void Button::attach(void(*callback)(Button*)) {
     m_observers.push_back(observer);
 }
 
-void Button::detach(IObserver *observer) {
-    m_observers.remove(observer);
-}
+//void Button::detach(IObserver *observer) {
+//    m_observers.remove(observer);
+//}
 
 void Button::notify() {
     std::list<IObserver*>::iterator iterator = m_observers.begin();
 
     while(iterator != m_observers.end()) {
-        (*iterator)->update(NumericKeyboardState(&this));
+        (*iterator)(this);
         ++iterator;
     }
 }

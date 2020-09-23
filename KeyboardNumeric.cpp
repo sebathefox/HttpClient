@@ -61,14 +61,18 @@ int KeyboardNumeric::poll() const {
     return 0;
 }
 
-Button& KeyboardNumeric::operator [] (int i) {
-    return &(m_buttons[i]);
-}
+//Button& KeyboardNumeric::operator [] (int i) {
+//    return &(m_buttons[i]);
+//}
 
-NumericKeyboardState KeyboardNumeric::getPressedKey() const {
-    return
-}
+//NumericKeyboardState KeyboardNumeric::getPressedKey() const {
+//    return
+//}
+//
+//void KeyboardNumeric::update(NumericKeyboardState state) {
+//    m_screen.DisplayStringAt(0, LINE(1), (uint8_t *)"YEET: " + state.button.getLabel(), CENTER_MODE);
+//}
 
-Numevoid KeyboardNumeric::update(NumericKeyboardState state) {
-    m_screen.DisplayStringAt(0, LINE(1), (uint8_t *)"YEET: " + state.button.getLabel(), CENTER_MODE);
+Button& KeyboardNumeric::getButton(int index) {
+    return m_buttons[index];
 }

@@ -8,8 +8,9 @@
 // Includes.
 #include <stdint.h>
 #include <string>
+#include <list>
 
-#include "ITouchable.h"
+//#include "ITouchable.h"
 
 // Forward declarations.
 class LCD_DISCO_F746NG;
@@ -20,7 +21,7 @@ class TS_DISCO_F746NG;
  * @author Sebastian Davaris
  * @date 21-09-2020
  */
-class Button : public ITouchable {
+class Button {
 public:
     const int CHAR_HEIGHT = 16;
     const int CHAR_WIDTH = 8;
@@ -78,6 +79,14 @@ public:
      * @date 21-09-2020
      */
     bool intersects(int x, int y);
+
+    bool pressed() const;
+
+    void attach(void(*callback)(Button*));
+
+    void notify();
+
+    std::string getLabel() const;
 private:
     int m_x;
     int m_y;
@@ -89,4 +98,6 @@ private:
     TS_DISCO_F746NG* m_touch;
 
     LCD_DISCO_F746NG* m_screen;
+
+    std::list<(void(*)(Button*))> m_observers;
 };

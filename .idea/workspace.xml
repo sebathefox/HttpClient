@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -9,7 +27,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f11078e-0367-46c2-8ba7-924b3f023b04" name="Default Changelist" comment="" />
+    <list default="true" id="4f11078e-0367-46c2-8ba7-924b3f023b04" name="Default Changelist" comment="Reverted to commit #3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Button.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Button.h" beforeDir="false" afterPath="$PROJECT_DIR$/Button.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyboardNumeric.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/KeyboardNumeric.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyboardNumeric.h" beforeDir="false" afterPath="$PROJECT_DIR$/KeyboardNumeric.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,13 +59,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,8 +68,34 @@
       <option name="presentableId" value="Default" />
       <updated>1600685068066</updated>
       <workItem from="1600685069907" duration="4302000" />
+      <workItem from="1600765808775" duration="2400000" />
+      <workItem from="1600841594168" duration="1149000" />
     </task>
+    <task id="LOCAL-00001" summary="Reverted to commit #3">
+      <created>1600760826696</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600760826696</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Reverted to commit #3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reverted to commit #3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="833" y="436" key="Github.ShareDialog" timestamp="1600689438689">
@@ -62,10 +106,14 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="723" y="223" key="Github.UntrackedFilesDialog/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600689465363" />
-    <state x="2055" y="168" width="1406" height="988" maximized="true" key="dock-window-1" timestamp="1600688444189">
+    <state x="560" y="272" key="Vcs.Push.Dialog.v2" timestamp="1600760837256">
+      <screen x="0" y="0" width="1920" height="1035" />
+    </state>
+    <state x="560" y="272" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600760837256" />
+    <state x="2054" y="159" width="1592" height="988" maximized="true" key="dock-window-1" timestamp="1600842189344">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state x="2055" y="168" width="1406" height="988" maximized="true" key="dock-window-1/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600688444189" />
+    <state x="2054" y="159" width="1592" height="988" maximized="true" key="dock-window-1/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600842189344" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1600686114407">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>

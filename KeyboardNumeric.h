@@ -46,13 +46,20 @@ public:
     void draw();
 
     /**
+     * Gets the button at the specified index.
+     * @param index The index of the button.
+     * @return The button reference.
+     */
+    Button& getButton(int index);
+
+    /**
      * Polls the current state from the numeric keyboard.
      * @param outState The state output.
      * @return Zero when successful otherwise positive.
      * @author Sebastian Davaris
      * @date 21-09-2020
      */
-    //int poll(NumericKeyboardState& outState) const;
+    int poll() const;
 private:
 
     int m_x;
