@@ -37,16 +37,8 @@ bool Button::intersects(int x, int y) {
             y <= m_y + m_h;
 }
 
-void Button::onTouch(int x, int y) {
-
-}
-
-bool Button::pressed() const {
-    return m_pressed;
-}
-
 void Button::attach(void(*callback)(Button*)) {
-    m_observers.push_back(observer);
+    m_observers.push_back(callback);
 }
 
 //void Button::detach(IObserver *observer) {
@@ -54,7 +46,7 @@ void Button::attach(void(*callback)(Button*)) {
 //}
 
 void Button::notify() {
-    std::list<IObserver*>::iterator iterator = m_observers.begin();
+    std::list<void(*)(Button*)>::iterator iterator = m_observers.begin();
 
     while(iterator != m_observers.end()) {
         (*iterator)(this);

@@ -80,8 +80,6 @@ public:
      */
     bool intersects(int x, int y);
 
-    bool pressed() const;
-
     void attach(void(*callback)(Button*));
 
     void notify();
@@ -99,5 +97,5 @@ private:
 
     LCD_DISCO_F746NG* m_screen;
 
-    std::list<(void(*)(Button*))> m_observers;
+    std::list<void(*)(Button*)> m_observers;
 };

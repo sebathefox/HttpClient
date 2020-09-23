@@ -9,6 +9,7 @@
 #define HTTPCLIENT_KEYBOARDNUMERIC_H
 
 #include "Button.h"
+#include <vector>
 
 // Forward declarations.
 class LCD_DISCO_F746NG;

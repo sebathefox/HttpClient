@@ -7,6 +7,9 @@
 
 #include "KeyboardNumeric.h"
 
+#include <iostream>
+#include <sstream>
+
 // Display includes
 #include "TS_DISCO_F746NG.h"
 #include "LCD_DISCO_F746NG.h"
@@ -27,19 +30,19 @@ KeyboardNumeric::KeyboardNumeric(int x, int y, LCD_DISCO_F746NG* screen, TS_DISC
             col = 0;
         }
 
-        m_buttons.push_back(Button(0 + (col * size), 0 + (row * size), size, size, &m_touch, &m_screen));
+        m_buttons.push_back(Button(0 + (col * size), 0 + (row * size), size, size, m_touch, m_screen));
         m_buttons[i].setLabel(static_cast<ostringstream*>( &(ostringstream() << (i + 1)) )->str());
 
         col++;
     }
 
-    m_buttons.push_back(Button(0 + (0 * size), 0 + (3 * size), size, size, &ts, &lcd));
+    m_buttons.push_back(Button(0 + (0 * size), 0 + (3 * size), size, size, m_touch, m_screen));
     m_buttons[9].setLabel("*");
 
-    m_buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, &ts, &lcd));
+    m_buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, m_touch, m_screen));
     m_buttons[9].setLabel("0");
 
-    m_buttons.push_back(Button(0 + (2 * size), 0 + (3 * size), size, size, &ts, &lcd));
+    m_buttons.push_back(Button(0 + (2 * size), 0 + (3 * size), size, size, m_touch, m_screen));
     m_buttons[9].setLabel("#");
 }
 
@@ -50,10 +53,15 @@ void KeyboardNumeric::draw() {
 }
 
 int KeyboardNumeric::poll() const {
-    for (int i = 0; i < m_buttons.size(); i++) {
-        ITouchable& btn = static_cast<ITouchable>(m_buttons[i]);
 
-        if(btn.pressed()) {
+    TS_StateTypeDef state;
+
+    m_touch->GetState(&state);
+
+    for (int i = 0; i < m_buttons.size(); i++) {
+//        ITouchable& btn = static_cast<ITouchable>(m_buttons[i]);
+
+        if(m_buttons[i].intersects(state.touchX[0], state.touchY[0])) {
             btn.notify();
         }
     }

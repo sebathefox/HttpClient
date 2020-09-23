@@ -117,7 +117,7 @@ int main()
 
     KeyboardNumeric numericKeyboard(0, 0, &lcd, &ts);
 
-
+    numericKeyboard.getButton(1).attach(onOnePressed);
 
     while(1) {
         /*ts.GetState(&TS_State);
