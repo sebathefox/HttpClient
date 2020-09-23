@@ -66,6 +66,13 @@ void onOnePressed(Button* sender) {
 //    printf("YOTE");
 //    printf("%s", sender->getLabel().c_str());
 
+    if(sender->getLabel() == "*") {
+        input = "";
+    }
+    else if(sender->getLabel() == "#") {
+        // Send data?
+    }
+
     input += sender->getLabel();
 }
 
@@ -121,7 +128,11 @@ int main()
 
     KeyboardNumeric numericKeyboard(0, 0, &lcd, &ts);
 
-    numericKeyboard.getButton(1).attach(onOnePressed);
+    for (int i = 0; i < 12; ++i) {
+        numericKeyboard.getButton(i).attach(onOnePressed);
+    }
+
+
 
     while(1) {
         /*ts.GetState(&TS_State);
@@ -131,7 +142,7 @@ int main()
 
         numericKeyboard.draw();
 
-        lcd.DisplayStringAt(320, LINE(5), input.c_str(), CENTER_MODE);
+        lcd.DisplayStringAt(320, LINE(5), (uint8_t*)input.c_str(), CENTER_MODE);
 
 //        tempHumidSensor.readData();
 //

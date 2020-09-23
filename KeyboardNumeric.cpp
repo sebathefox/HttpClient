@@ -40,10 +40,10 @@ KeyboardNumeric::KeyboardNumeric(int x, int y, LCD_DISCO_F746NG* screen, TS_DISC
     m_buttons[9].setLabel("*");
 
     m_buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, m_touch, m_screen));
-    m_buttons[9].setLabel("0");
+    m_buttons[10].setLabel("0");
 
     m_buttons.push_back(Button(0 + (2 * size), 0 + (3 * size), size, size, m_touch, m_screen));
-    m_buttons[9].setLabel("#");
+    m_buttons[11].setLabel("#");
 }
 
 void KeyboardNumeric::draw() {
@@ -59,7 +59,7 @@ int KeyboardNumeric::poll() const {
 
     m_touch->GetState(&state);
 
-    printf("YEET");
+//    printf("YEET");
 
     if(!state.touchDetected) {
 

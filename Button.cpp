@@ -54,7 +54,7 @@ void Button::notify() const {
 //    }
 
     for(int i = 0; i < m_observers.size(); i++) {
-        m_observers[i](this);
+        m_observers[i]((Button*)this);
     }
 }
 
