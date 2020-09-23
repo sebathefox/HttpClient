@@ -60,8 +60,21 @@ void drawImage(char * name, uint16_t x, uint16_t y);
 
 DHT tempHumidSensor(D4, DHT22);
 
+// Initializes the HTTP client.
+HttpClient http("192.168.1.1", 8000);
+
 std::string input = "";
 
+int unsigned temp = 10101; //seed
+
+bool rainbow = false;
+
+/**
+ * EVENT
+ * @param sender
+ * @author Sebastian Davaris
+ * @date 23-09-2020
+ */
 void onOnePressed(Button* sender) {
 //    printf("YOTE");
 //    printf("%s", sender->getLabel().c_str());
@@ -70,10 +83,23 @@ void onOnePressed(Button* sender) {
         input = "";
     }
     else if(sender->getLabel() == "#") {
-        // Send data?
+
+        tempHumidSensor.readData();
+        float celcius = tempHumidSensor.ReadTemperature(CELCIUS);
+
+        http.addBodyParameter("value", static_cast<ostringstream*>( &(ostringstream() << celcius) )->str());
+        http.addBodyParameter("&category", "1");
+        http.addBodyParameter("&token", DEVICE_TOKEN);
+
+        http.send("/api/v1/data");
+
     }
 
     input += sender->getLabel();
+
+    if (input == "#1337") {
+        rainbow != rainbow;
+    }
 }
 
 
@@ -82,35 +108,8 @@ void onOnePressed(Button* sender) {
  * 
  */
 int main()
-{   
-
-//    std::vector<Button> buttons;
-//
-//    int size = 48;
-//    int row = 0;
-//    int col = 0;
-//
-//    for(int i = 0; i < 9; i++) {
-//        if(i % 3 == 0 && i != 0) {
-//            row++;
-//            col = 0;
-//        }
-//
-//        buttons.push_back(Button(0 + (col * size), 0 + (row * size), size, size, &ts, &lcd));
-//        buttons[i].setLabel(static_cast<ostringstream*>( &(ostringstream() << (i + 1)) )->str());
-//
-//        col++;
-//    }
-//    buttons.push_back(Button(0 + (1 * size), 0 + (3 * size), size, size, &ts, &lcd));
-//    buttons[9].setLabel("0");
-//
-//
-//    for(int i = 0; i < 10; i++) {
-//        buttons[i].draw();
-//    }
-
+{
     // Base variables.
-    
     TS_StateTypeDef TS_State;
     
     // Initializes the touch display.
@@ -119,54 +118,51 @@ int main()
     // Mounts the SD card
     fs.mount(&bd);
 
-    // Initializes the HTTP client.
-    HttpClient http("192.168.1.1", 8000);
-
     //drawImage("/fs/images.bmp", 0, 0);
 
-    std::string oldValue = "";
+//    std::string oldValue = "";
 
+    // Initializes the numeric keyboard.
     KeyboardNumeric numericKeyboard(0, 0, &lcd, &ts);
 
+    // Sets the 'click' event on the buttons.
     for (int i = 0; i < 12; ++i) {
         numericKeyboard.getButton(i).attach(onOnePressed);
     }
 
-
-
+    // Main loop.
     while(1) {
-        /*ts.GetState(&TS_State);
-        if(TS_State.touchDetected) {*/
 
         numericKeyboard.poll();
 
-        numericKeyboard.draw();
-
-        lcd.DisplayStringAt(320, LINE(5), (uint8_t*)input.c_str(), CENTER_MODE);
-
-//        tempHumidSensor.readData();
-//
-//        float celcius = tempHumidSensor.ReadTemperature(CELCIUS);
-//
 //        if(oldValue == static_cast<ostringstream*>( &(ostringstream() << celcius) )->str()) {
 //            wait(0.2);
 //            continue;
 //        }
 //
-//        lcd.DisplayStringAt(0, LINE(3), (uint8_t*) static_cast<ostringstream*>( &(ostringstream() << celcius) )->str().c_str(), CENTER_MODE);
-//
-//        http.addBodyParameter("value", static_cast<ostringstream*>( &(ostringstream() << celcius) )->str());
-//        http.addBodyParameter("&category", "1");
-//        http.addBodyParameter("&token", DEVICE_TOKEN);
-//
-//        http.send("/api/v1/data");
-//
-//        lcd.DisplayStringAt(0, LINE(1), (uint8_t *)"SUCCESS!!!", CENTER_MODE);
-//
 //        oldValue = static_cast<ostringstream*>( &(ostringstream() << celcius) )->str();
-//
-//
-        wait(0.2);
+
+        /************************/
+        /*       Rendering      */
+        /************************/
+        // Clears the front buffer.
+        if(!rainbow) {
+            lcd.Clear(LCD_COLOR_BLACK);
+        }
+        else {
+            for(int y = 0;y < 2;y++) {
+                temp = temp * (y + y + 1);
+                temp = (temp ^ (0xffffff)) >> 2;
+            }
+
+            lcd.Clear(temp);
+        }
+
+        numericKeyboard.draw();
+
+        lcd.DisplayStringAt(320, LINE(5), (uint8_t*)input.c_str(), CENTER_MODE);
+
+        wait(0.18);
     }
 
 }

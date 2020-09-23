@@ -27,10 +27,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f11078e-0367-46c2-8ba7-924b3f023b04" name="Default Changelist" comment="Fixed the event handling.">
+    <list default="true" id="4f11078e-0367-46c2-8ba7-924b3f023b04" name="Default Changelist" comment="Added the clicked events to all buttons.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Button.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Button.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyboardNumeric.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/KeyboardNumeric.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +65,7 @@
       <updated>1600685068066</updated>
       <workItem from="1600685069907" duration="4302000" />
       <workItem from="1600765808775" duration="2400000" />
-      <workItem from="1600841594168" duration="5275000" />
+      <workItem from="1600841594168" duration="6251000" />
     </task>
     <task id="LOCAL-00001" summary="Reverted to commit #3">
       <created>1600760826696</created>
@@ -97,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600849766279</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added the clicked events to all buttons.">
+      <created>1600850103971</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600850103971</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,7 +122,8 @@
     <MESSAGE value="Fixed some major errors in Button" />
     <MESSAGE value="Fixed some more errors.." />
     <MESSAGE value="Fixed the event handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the event handling." />
+    <MESSAGE value="Added the clicked events to all buttons." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the clicked events to all buttons." />
   </component>
   <component name="WindowStateProjectService">
     <state x="833" y="436" key="Github.ShareDialog" timestamp="1600689438689">
@@ -128,10 +134,10 @@
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
     <state x="723" y="223" key="Github.UntrackedFilesDialog/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600689465363" />
-    <state x="560" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600849774953">
+    <state x="560" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600850110377">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="560" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600849774953" />
+    <state x="560" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1600850110377" />
     <state x="2054" y="159" width="1592" height="988" maximized="true" key="dock-window-1" timestamp="1600842189344">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
