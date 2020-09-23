@@ -8,7 +8,7 @@
 // Includes.
 #include <stdint.h>
 #include <string>
-#include <list>
+#include <vector>
 
 //#include "ITouchable.h"
 
@@ -78,11 +78,11 @@ public:
      * @author Sebastian Davaris
      * @date 21-09-2020
      */
-    bool intersects(int x, int y);
+    bool intersects(int x, int y) const;
 
     void attach(void(*callback)(Button*));
 
-    void notify();
+    void notify() const;
 
     std::string getLabel() const;
 private:
@@ -97,5 +97,5 @@ private:
 
     LCD_DISCO_F746NG* m_screen;
 
-    std::list<void(*)(Button*)> m_observers;
+    std::vector<void(*)(Button*)> m_observers;
 };

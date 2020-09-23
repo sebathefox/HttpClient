@@ -31,7 +31,7 @@
 
 // Custom classes
 #include "KeyboardNumeric.h"
-#include "Button.h"
+//#include "Button.h"
 #include "HttpClient.h"
 
 /************************
@@ -60,9 +60,13 @@ void drawImage(char * name, uint16_t x, uint16_t y);
 
 DHT tempHumidSensor(D4, DHT22);
 
+std::string input = "";
 
 void onOnePressed(Button* sender) {
-    printf(sender->getLabel().c_str());
+//    printf("YOTE");
+//    printf("%s", sender->getLabel().c_str());
+
+    input += sender->getLabel();
 }
 
 
@@ -127,6 +131,8 @@ int main()
 
         numericKeyboard.draw();
 
+        lcd.DisplayStringAt(320, LINE(5), input.c_str(), CENTER_MODE);
+
 //        tempHumidSensor.readData();
 //
 //        float celcius = tempHumidSensor.ReadTemperature(CELCIUS);
@@ -149,7 +155,7 @@ int main()
 //        oldValue = static_cast<ostringstream*>( &(ostringstream() << celcius) )->str();
 //
 //
-//        wait(0.2);
+        wait(0.2);
     }
 
 }

@@ -30,7 +30,7 @@ void Button::draw() {
     m_screen->DisplayStringAt(m_x + (m_w / 2) - (CHAR_WIDTH * strlen(m_label.c_str()) / 2 - 1), m_y + (m_h / 2) - (CHAR_HEIGHT / 2 - 1), (uint8_t*) m_label.c_str(), LEFT_MODE);
 }
 
-bool Button::intersects(int x, int y) {
+bool Button::intersects(int x, int y) const {
     return  x >= m_x &&
             x <= m_x + m_w &&
             y >= m_y &&
@@ -45,12 +45,16 @@ void Button::attach(void(*callback)(Button*)) {
 //    m_observers.remove(observer);
 //}
 
-void Button::notify() {
-    std::list<void(*)(Button*)>::iterator iterator = m_observers.begin();
+void Button::notify() const {
+//    std::list<void(*)(Button*)>::iterator iterator = m_observers.begin();
+//
+//    while(iterator != m_observers.end()) {
+//        (*iterator)(this);
+//        ++iterator;
+//    }
 
-    while(iterator != m_observers.end()) {
-        (*iterator)(this);
-        ++iterator;
+    for(int i = 0; i < m_observers.size(); i++) {
+        m_observers[i](this);
     }
 }
 

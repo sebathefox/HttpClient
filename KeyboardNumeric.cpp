@@ -47,8 +47,9 @@ KeyboardNumeric::KeyboardNumeric(int x, int y, LCD_DISCO_F746NG* screen, TS_DISC
 }
 
 void KeyboardNumeric::draw() {
-    for (Button button : m_buttons) {
-        button.draw();
+    for (int i = 0; i < m_buttons.size(); i++) {
+        m_buttons[i].draw();
+
     }
 }
 
@@ -58,11 +59,18 @@ int KeyboardNumeric::poll() const {
 
     m_touch->GetState(&state);
 
+    printf("YEET");
+
+    if(!state.touchDetected) {
+
+        return 0;
+    }
+
     for (int i = 0; i < m_buttons.size(); i++) {
 //        ITouchable& btn = static_cast<ITouchable>(m_buttons[i]);
 
         if(m_buttons[i].intersects(state.touchX[0], state.touchY[0])) {
-            btn.notify();
+            m_buttons[i].notify();
         }
     }
 
